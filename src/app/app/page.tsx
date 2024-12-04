@@ -1,12 +1,20 @@
-import { auth } from "@/services/auth";
-import { UserInfo } from "./_components/user-info";
+import {
+  DashboardPage,
+  DashboardPageHeader,
+  DashboardPageHeaderTitle,
+  DashboardPageMain,
+} from '@/components/dashboard/page'
 
 export default async function AppPage() {
-  const session = await auth();
-
   return (
-    <main className="flex items-center justify-center h-screen">
-      <UserInfo session={session} />
-    </main>
-  );
+    <DashboardPage>
+      <DashboardPageHeader>
+        <DashboardPageHeaderTitle>Tarefas</DashboardPageHeaderTitle>
+      </DashboardPageHeader>
+
+      <DashboardPageMain>
+        <h1>Tarefas</h1>
+      </DashboardPageMain>
+    </DashboardPage>
+  )
 }
