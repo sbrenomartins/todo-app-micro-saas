@@ -69,5 +69,7 @@ model Todo {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  doneAt DateTime?
+
   @@map("todos")
 }

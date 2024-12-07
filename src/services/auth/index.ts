@@ -1,8 +1,8 @@
-import NextAuth from "next-auth";
-import Nodemailer from "next-auth/providers/nodemailer";
+import NextAuth from 'next-auth'
+import Nodemailer from 'next-auth/providers/nodemailer'
 
-import { PrismaAdapter } from "@auth/prisma-adapter";
-import { prismaClient } from "../database";
+import { PrismaAdapter } from '@auth/prisma-adapter'
+import { prismaClient } from '../database'
 
 export const {
   handlers: { GET, POST },
@@ -11,11 +11,11 @@ export const {
   signOut,
 } = NextAuth({
   pages: {
-    signIn: "/auth",
-    signOut: "/auth",
-    error: "/auth",
-    verifyRequest: "/auth",
-    newUser: "/app",
+    signIn: '/auth',
+    signOut: '/auth',
+    error: '/auth',
+    verifyRequest: '/auth',
+    newUser: '/app',
   },
   adapter: PrismaAdapter(prismaClient),
   providers: [
@@ -25,4 +25,4 @@ export const {
     }),
   ],
   secret: process.env.EMAIL_SECRET,
-});
+})
